@@ -1,6 +1,6 @@
-class CreateParkingLots < ActiveRecord::Migration[6.0]
+class CreateCarparks < ActiveRecord::Migration[6.0]
   def change
-    create_table :parking_lots do |t|
+    create_table :carparks do |t|
       t.string :car_park_no
       t.string :address
       t.float :latitude
@@ -17,6 +17,6 @@ class CreateParkingLots < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :parking_lots, :car_park_no
+    add_index :carparks, :car_park_no
   end
 end

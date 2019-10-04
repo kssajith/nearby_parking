@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_10_04_100604) do
 
-  create_table "parking_lots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "carparks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "car_park_no"
     t.string "address"
     t.float "latitude"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2019_10_04_100604) do
     t.integer "total_lots"
     t.integer "lots_available", default: 0
     t.datetime "availability_updated_at"
-    t.index ["car_park_no"], name: "index_parking_lots_on_car_park_no"
+    t.index ["car_park_no"], name: "index_carparks_on_car_park_no"
   end
 
 end

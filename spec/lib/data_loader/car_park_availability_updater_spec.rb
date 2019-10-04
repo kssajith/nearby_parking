@@ -16,7 +16,7 @@ describe DataLoader::CarParkAvailabilityUpdater do
 
   describe '#run' do
     before do
-      create(:parking_lot, car_park_no: 'HE12')
+      create(:carpark, car_park_no: 'HE12')
     end
 
     it 'returns number of records updated' do
@@ -25,17 +25,17 @@ describe DataLoader::CarParkAvailabilityUpdater do
 
     it 'updates the lots available with the data in the api response' do
       subject.run
-      expect(ParkingLot.find_by_car_park_no('HE12').lots_available).to eq(13)
+      expect(Carpark.find_by_car_park_no('HE12').lots_available).to eq(13)
     end
 
     it 'updates total lots with the value in the api response' do
       subject.run
-      expect(ParkingLot.find_by_car_park_no('HE12').total_lots).to eq(91)
+      expect(Carpark.find_by_car_park_no('HE12').total_lots).to eq(91)
     end
 
     it 'updates UTC time in availability_updated_at' do
       subject.run
-      time_in_db = ParkingLot.find_by_car_park_no('HE12').availability_updated_at
+      time_in_db = Carpark.find_by_car_park_no('HE12').availability_updated_at
       expect(time_in_db.strftime('%Y-%m-%dT%H:%M:%S')).to eq('2019-10-03T06:57:34')
     end
   end

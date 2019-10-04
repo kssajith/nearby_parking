@@ -95,11 +95,11 @@ module DataLoader
     end
 
     def enum_val(field, val)
-      ParkingLot.send(field.pluralize)[val]
+      Carpark.send(field.pluralize)[val]
     end
 
     def update_to_database(info_record)
-      record = ParkingLot.where(car_park_no: info_record['car_park_no']).
+      record = Carpark.where(car_park_no: info_record['car_park_no']).
         first_or_create!
 
       record.update(info_record.except('car_park_no'))

@@ -46,7 +46,7 @@ module DataLoader
         #   "carpark_number"=>"HE12",
         #   "update_datetime"=>"2019-10-03T14:57:34"
         # }
-        parking_lot = ParkingLot.find_by_car_park_no(record['carpark_number'])
+        parking_lot = Carpark.find_by_car_park_no(record['carpark_number'])
         next unless parking_lot
 
         attributes = {

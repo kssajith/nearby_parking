@@ -18,7 +18,7 @@ describe DataLoader::CarParkInfoLoader do
       it 'add a record to the database' do
         expect {
           subject.load_data(file_path)
-        }.to change(ParkingLot, :count).by(1)
+        }.to change(Carpark, :count).by(1)
       end
 
       it 'returns has with total_records, updated_count and error_count' do

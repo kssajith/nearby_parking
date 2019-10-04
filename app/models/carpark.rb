@@ -1,4 +1,4 @@
-class ParkingLot < ApplicationRecord
+class Carpark < ApplicationRecord
   validates_uniqueness_of :car_park_no, case_sensitive: true
 
   enum car_park_type: {
@@ -25,4 +25,8 @@ class ParkingLot < ApplicationRecord
     'N' => 0,
     'Y' => 1
   }
+
+  def self.nearest(params)
+
+  end
 end
