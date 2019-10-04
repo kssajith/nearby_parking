@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <username>
+  password: <password>
+  socket: /tmp/mysql.sock
+
+development:
+  <<: *default
+  database: nearby_parking_development
+test:
+  <<: *default
+  database: nearby_parking_test
+production:
+  <<: *default
+  database: nearby_parking_production
+  username: nearby_parking
+  password: <%= ENV['NEARBY_PARKING_DATABASE_PASSWORD'] %>

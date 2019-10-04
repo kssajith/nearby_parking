@@ -10,6 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_10_02_093029) do
+
+  create_table "parking_lots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "car_park_no"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "car_park_type"
+    t.integer "type_of_parking_system"
+    t.string "short_term_parking"
+    t.string "free_parking"
+    t.integer "night_parking"
+    t.integer "car_park_decks"
+    t.float "gantry_height"
+    t.integer "car_park_basement"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_park_no"], name: "index_parking_lots_on_car_park_no"
+  end
 
 end
