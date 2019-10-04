@@ -22,7 +22,8 @@ describe DataLoader::CarParkInfoLoader do
       end
 
       it 'returns has with total_records, updated_count and error_count' do
-        expect(subject.load_data(file_path).keys).to eq([:total_records, :updated_count, :error_count])
+        keys = [:total_records, :updated_count, :error_count]
+        expect(subject.load_data(file_path).keys).to eq(keys)
       end
     end
   end

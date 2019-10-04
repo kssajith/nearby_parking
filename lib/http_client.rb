@@ -1,3 +1,5 @@
+require 'net/http'
+
 class HttpClient
   attr_reader :client
 

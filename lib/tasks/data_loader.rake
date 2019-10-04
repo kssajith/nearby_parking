@@ -1,4 +1,5 @@
 require_relative '../data_loader/car_park_info_loader'
+require_relative '../data_loader/car_park_availability_updater'
 require 'logger'
 logger = Logger.new(STDOUT)
 
@@ -16,5 +17,8 @@ namespace :data_loader do
 
   desc 'Task to update the availability of exosting carparks'
   task update_carpark_availability: :environment do
+    logger.info 'Start task to update carpark availability'
+    result = DataLoader::CarParkAvailabilityUpdater.new(logger).run
+    logger.info "Completed task to update carpark availability. Result: #{result}"
   end
 end

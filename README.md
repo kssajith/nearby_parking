@@ -4,8 +4,11 @@ An HTTP API only application to get the closest car parks with the lot availabil
 
 ## Assumptions
 
-1. Carpark informationis doanloaded from [here](https://data.gov.sg/dataset/hdb-carpark-information?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c).
+1. Carpark information is dowanloaded from [here](https://data.gov.sg/dataset/hdb-carpark-information?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c).
    Data will be loaded to the database assuming that 'Car Park No.' will hold the unique identifier for the carpark.
+
+2. Carpark availability API specification can be read [here](https://data.gov.sg/dataset/carpark-availability)
+   Carpark slot availability from this API has been updated assuming that values in `carpark_number` field in api response is exactly same as the `car_park_no` in carpark information api mentioned above.
 
 ## Installation and Setup
 

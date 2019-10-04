@@ -1,4 +1,3 @@
-require 'net/http'
 require_relative '../http_client'
 
 module CoordinateSystem
