@@ -1,5 +1,13 @@
 class Carpark < ApplicationRecord
+  acts_as_mappable :default_units => :miles,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+
   validates_uniqueness_of :car_park_no, case_sensitive: true
+
+  scope :with_available_lot, -> { where("lots_available > ?", 0) }
 
   enum car_park_type: {
     'BASEMENT CAR PARK' => 0,
