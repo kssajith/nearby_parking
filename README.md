@@ -19,7 +19,11 @@ An HTTP API only application to get the closest car parks with the lot availabil
 
 ### Configuration
 
-Create `database.yml` in config directory and add the credentials accordingly as per the template file `database.yml.example`
+Clone the application code and create `database.yml` in config directory and add the credentials accordingly as per the template file `database.yml.example`
+
+### Install dependencies
+
+Navigae to the application root and run: `bundle install`
 
 ### Database creation
 
