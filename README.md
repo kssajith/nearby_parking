@@ -51,3 +51,21 @@ Navigae to the application root and run:
 `bundle exec rails server`
 
 to start the application in development mode
+
+## Sample request and response
+
+- Success response:
+
+```bash
+$ curl "http://localhost:3000/carparks/nearest?latitude=1.365260&longitude=103.845115&page=1&per_page=1"
+
+[{"address":"BLK 308C ANG MO KIO AVE 1","latitude":"1.36554","longitude":"103.844619","total_lots":454,"lots_available":152}]
+```
+
+- Error response (paramater `longitude` is not passed):
+
+```bash
+$ curl "http://localhost:3000/carparks/nearest?latitude=1.365260&page=1&per_page=1"
+
+{"errors":[{"title":"Mandatory params missing","status":400,"details":"Request should have valid latitude, longitude params"}]}
+```
