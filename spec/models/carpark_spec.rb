@@ -28,7 +28,7 @@ RSpec.describe Carpark, type: :model do
 
       it 'returns array of hashes with the specific details' do
         keys = %w(address latitude longitude total_lots lots_available)
-        expect(Carpark.nearest_available(params).first.keys).to eq(keys)
+        expect(Carpark.nearest_available(params).first.keys).to match_array(keys)
       end
     end
 
