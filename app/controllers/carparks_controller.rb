@@ -1,18 +1,17 @@
 class CarparksController < ApplicationController
   def nearest
-    nearest_carparks = Carpark.
-      with_available_lot.
-      by_distance(:origin => [params[:latitude], params[:longitude]]).
-      page(params[:page]).
-      per(params[:per_page])
+    if mandatory_params_missing(params)
+      extra = { details: 'Request should have valid latitude, longitude params'}
+      render_json_error(:bad_request, 'Mandatory params missing', extra)
+      return
+    end
 
-    render json: nearest_carparks.as_json(only: fields_required)
+    render json: Carpark.nearest_available(params)
   end
 
   private
 
-  def fields_required
-    [:address, :latitude, :longitude, :total_lots, :lots_available]
+  def mandatory_params_missing(params)
+    params[:latitude].blank? || params[:longitude].blank?
   end
-
 end

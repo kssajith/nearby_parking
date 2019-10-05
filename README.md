@@ -44,6 +44,6 @@ Navigae to the application root and run:
 
 Navigae to the application root and run:
 
-`bundle exec rails s`
+`bundle exec rails server`
 
 to start the application in development mode

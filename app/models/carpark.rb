@@ -34,7 +34,24 @@ class Carpark < ApplicationRecord
     'Y' => 1
   }
 
-  def self.nearest(params)
+  def self.nearest_available(params)
+    unless coordinates_in_range?(params)
+      return [{ error: 'Coordinate value(s) out of range' }]
+    end
 
+    Carpark.
+      with_available_lot.
+      by_distance(:origin => [params[:latitude], params[:longitude]]).
+      page(params[:page]).
+      per(params[:per_page]).
+      as_json(only: response_fields)
+  end
+
+  def self.coordinates_in_range?(params)
+    (params[:latitude].to_f.abs <= 90) && (params[:longitude].to_f.abs <= 180)
+  end
+
+  def self.response_fields
+    [:address, :latitude, :longitude, :total_lots, :lots_available]
   end
 end
